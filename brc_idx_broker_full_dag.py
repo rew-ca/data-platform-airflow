@@ -1,7 +1,8 @@
 from datetime import timedelta, datetime
-import airflow
 from airflow import DAG
 from airflow.contrib.operators.ssh_operator import SSHOperator
+
+
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
@@ -12,7 +13,8 @@ default_args = {
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
 }
-dag = DAG(dag_id='brc_idx_feed_full',
+
+dag = DAG(dag_id='brc_idx_feed_broker_full',
           default_args=default_args,
           schedule_interval='30 8 * * *',
           dagrun_timeout=timedelta(seconds=120))
@@ -20,8 +22,9 @@ dag = DAG(dag_id='brc_idx_feed_full',
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "brc_idx_feed.py --full --skip_photos --skip_geocode --feed_code brc_idx_broker"
 """
+
 t1 = SSHOperator(
     ssh_conn_id='ssh_aws_ec2',
-    task_id='brc_idx_feed_ssh_operator',
+    task_id='brc_idx_feed_broker_full_ssh_operator',
     command=t1_bash,
     dag=dag)
