@@ -25,6 +25,6 @@ t1_bash = """
 
 t1 = SSHOperator(
     ssh_conn_id='ssh_aws_ec2',
-    task_id='crea_ddf_feed_incremental_ssh_operator',
+    task_id='crea_ddf_feed_incremental',
     command=t1_bash,
     dag=dag)

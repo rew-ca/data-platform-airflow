@@ -25,6 +25,6 @@ t1_bash = """
 
 t1 = SSHOperator(
     ssh_conn_id='ssh_aws_ec2',
-    task_id='hourly_mat_view_refresh_ssh_operator',
+    task_id='hourly_mat_view_refresh',
     command=t1_bash,
     dag=dag)

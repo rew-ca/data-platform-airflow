@@ -25,6 +25,6 @@ t1_bash = """
 
 t1 = SSHOperator(
     ssh_conn_id='ssh_aws_ec2',
-    task_id='geocode_treb_dla_listing_all_ssh_operator',
+    task_id='geocode_treb_dla_listing_all',
     command=t1_bash,
     dag=dag)
