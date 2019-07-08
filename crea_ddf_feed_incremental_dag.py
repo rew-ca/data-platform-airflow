@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='crea_ddf_feed_incremental',
           default_args=default_args,
-          schedule_interval='30 16 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='30 16 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "crea_ddf_feed.py --incremental"

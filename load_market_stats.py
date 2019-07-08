@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='load_market_stats',
           default_args=default_args,
-          schedule_interval='20 8 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='20 8 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "load_market_stats.py"

@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='load_agent_portal_listing_report_daily',
           default_args=default_args,
-          schedule_interval='25 7 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='25 7 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "load_agent_portal_daily_listing_events_summary.py"

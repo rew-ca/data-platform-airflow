@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='sms_alert',
           default_args=default_args,
-          schedule_interval='5,35 * * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='5,35 * * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "sms_alert_info_log.py"

@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='treb_idx_feed_incremental',
           default_args=default_args,
-          schedule_interval='45 */2 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='45 */2 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "treb_rets_feed.py --feed_code treb_idx --incremental"

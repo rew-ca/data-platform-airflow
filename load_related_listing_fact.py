@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='load_related_listing_fact',
           default_args=default_args,
-          schedule_interval='15 3 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='15 3 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "load_related_listing_fact.py"

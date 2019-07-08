@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='geocode_treb_dla_listing_all',
           default_args=default_args,
-          schedule_interval='0 7 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='0 7 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "geo_listings_all.py --feed_code treb_dla"

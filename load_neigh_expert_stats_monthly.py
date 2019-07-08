@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='load_neigh_expert_stats_monthly.py',
           default_args=default_args,
-          schedule_interval='15 7 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='15 7 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "load_neigh_expert_stats.py"

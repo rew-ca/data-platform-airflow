@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='treb_vow_feed_incremental.py',
           default_args=default_args,
-          schedule_interval='45 7,13,19 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='45 7,13,19 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "treb_rets_feed.py --feed_code treb_vow --incremental --skip_geocode"

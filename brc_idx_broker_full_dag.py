@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='brc_idx_feed_broker_full',
           default_args=default_args,
-          schedule_interval='30 8 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='30 8 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "brc_idx_feed.py --full --skip_photos --skip_geocode --feed_code brc_idx_broker"

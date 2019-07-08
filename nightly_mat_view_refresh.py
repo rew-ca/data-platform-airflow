@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='nightly_mat_view_refresh',
           default_args=default_args,
-          schedule_interval='0 11 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='0 11 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "refresh_mat_views_nightly.py"

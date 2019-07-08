@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='vreb_idx_feed_incremental',
           default_args=default_args,
-          schedule_interval='40 */2 * * *',
-          dagrun_timeout=timedelta(minutes=12))
+          schedule_interval='40 */2 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "vreb_idx_feed.py --incremental"

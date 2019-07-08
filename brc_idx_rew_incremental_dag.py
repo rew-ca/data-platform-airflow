@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='brc_idx_rew_incremental',
           default_args=default_args,
-          schedule_interval='30 */2 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='30 */2 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "brc_idx_feed.py --incremental --feed_code brc_idx_rew"
@@ -28,5 +27,3 @@ t1 = SSHOperator(
     task_id='brc_idx_rew_incremental',
     command=t1_bash,
     dag=dag)
-
-t1

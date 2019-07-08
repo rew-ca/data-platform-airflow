@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='vireb_idx_full',
           default_args=default_args,
-          schedule_interval='30 10 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='30 10 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "vireb_idx_feed.py --full"

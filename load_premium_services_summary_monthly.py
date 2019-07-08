@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='load_premium_services_summary_monthly',
           default_args=default_args,
-          schedule_interval='0 0 1 * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='0 0 1 * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "load_premium_services_monthly_summary.py"

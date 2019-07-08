@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='monitor_data_jobs',
           default_args=default_args,
-          schedule_interval='0 * * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='0 * * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "monitor_data_jobs.py"

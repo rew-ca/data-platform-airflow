@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='load_property_sales_wls',
           default_args=default_args,
-          schedule_interval='15 5 * * 5',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='15 5 * * 5')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "load_property_sales_wls.py --incremental"

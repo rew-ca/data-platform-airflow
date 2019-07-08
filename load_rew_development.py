@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='load_rew_development',
           default_args=default_args,
-          schedule_interval='*/30 * * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='*/30 * * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "execute_sql_file.py --sql_file load_rew_development.sql --job_code load_rew_development"

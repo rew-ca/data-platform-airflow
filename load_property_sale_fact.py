@@ -16,8 +16,7 @@ default_args = {
 
 dag = DAG(dag_id='load_property_sale_fact',
           default_args=default_args,
-          schedule_interval='0 23 * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='0 23 * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "load_property_sale_fact.py"
