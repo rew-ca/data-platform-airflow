@@ -9,7 +9,7 @@ default_args = {
     'email': ['hkumar@glacierinfogroup.com'],
     'email_on_failure': True,
     'email_on_retry': True,
-    'start_date': datetime.now() - timedelta(days=1),
+    'start_date': datetime(2019, 7, 7),
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
 }

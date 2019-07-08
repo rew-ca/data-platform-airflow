@@ -9,15 +9,14 @@ default_args = {
     'email': ['hkumar@glacierinfogroup.com'],
     'email_on_failure': True,
     'email_on_retry': True,
-    'start_date': datetime.now() - timedelta(days=1),
+    'start_date': datetime(2019, 7, 7),
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
 }
 
 dag = DAG(dag_id='hourly_mat_view_refresh',
           default_args=default_args,
-          schedule_interval='45 * * * *',
-          dagrun_timeout=timedelta(seconds=120))
+          schedule_interval='45 * * * *')
 
 t1_bash = """
 /usr/local/bin/dp/database_jobs/run_py.sh "refresh_mat_views_hourly.py"
